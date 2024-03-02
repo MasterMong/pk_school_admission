@@ -9,16 +9,16 @@ created:
     - database/factories/StudentProfileFactory.php
     - database/factories/StudentFactory.php
     - database/factories/RelationshipsFactory.php
-    - database/migrations/2024_03_02_201440_create_settings_table.php
-    - database/migrations/2024_03_02_201441_create_document_types_table.php
-    - database/migrations/2024_03_02_201442_create_level_groups_table.php
-    - database/migrations/2024_03_02_201443_create_levels_table.php
-    - database/migrations/2024_03_02_201444_create_form_groups_table.php
-    - database/migrations/2024_03_02_201445_create_forms_table.php
-    - database/migrations/2024_03_02_201446_create_form_responses_table.php
-    - database/migrations/2024_03_02_201447_create_student_profiles_table.php
-    - database/migrations/2024_03_02_201448_create_students_table.php
-    - database/migrations/2024_03_02_201449_create_relationships_table.php
+    - database/migrations/2024_03_02_204453_create_settings_table.php
+    - database/migrations/2024_03_02_204454_create_document_types_table.php
+    - database/migrations/2024_03_02_204455_create_level_groups_table.php
+    - database/migrations/2024_03_02_204456_create_levels_table.php
+    - database/migrations/2024_03_02_204457_create_form_groups_table.php
+    - database/migrations/2024_03_02_204458_create_forms_table.php
+    - database/migrations/2024_03_02_204459_create_form_responses_table.php
+    - database/migrations/2024_03_02_204500_create_student_profiles_table.php
+    - database/migrations/2024_03_02_204501_create_students_table.php
+    - database/migrations/2024_03_02_204502_create_relationships_table.php
     - app/Models/Setting.php
     - app/Models/DocumentType.php
     - app/Models/LevelGroup.php
@@ -33,7 +33,7 @@ models:
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     Setting: { key: 'string:200', value: 'string:50', is_toggle: bool, des: 'string:500' }
     DocumentType: { name: 'string:200', display_name: 300, des: 'string:2000', img: 'string:2000 nullable', doc_type: 'string:50', attr: json }
-    LevelGroup: { name: 'string:100', value: int, relationships: { hasMany: Level } }
+    LevelGroup: { name: 'string:100', relationships: { hasMany: Level } }
     Level: { name: 'string:100', value: int, relationships: { hasMany: Student, belongsTo: LevelGroup } }
     FormGroup: { name: 'string:300', relationships: { hasMany: Form } }
     Form: { user_id: int, form_group_id: 'id foreign', name: 'string:500', des: 'string:200', is_guest: bool, is_enable: bool, limit_time: bool, start_date: datetime, end_date: datetime, is_enabled: bool, fields: json, search_field: json, status: json, code_start: 'string:40', code_leading_zero_length: int, default_status: 'string:50', relationships: { hasMany: FormResponse, belongsTo: FormGroup } }

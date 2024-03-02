@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\LevelGroup;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +20,8 @@ class DatabaseSeeder extends Seeder
              'email' => 'admin@admin.com',
              'password' => bcrypt('password')
          ]);
+
+         LevelGroup::create(['name' => 'ชั้นมัธยมศึกษาตอนต้น']);
+         LevelGroup::create(['name' => 'ชั้นมัธยมศึกษาตอนปลาย']);
     }
 }

@@ -23,7 +23,7 @@ class StudentProfile extends Model
         'mname',
         'lname',
         'data',
-        'form_response_id',
+        'form_responses_id',
         'student_id',
     ];
 
@@ -35,7 +35,7 @@ class StudentProfile extends Model
     protected $casts = [
         'id' => 'integer',
         'data' => 'array',
-        'form_response_id' => 'integer',
+        'form_responses_id' => 'integer',
         'student_id' => 'integer',
     ];
 
@@ -44,9 +44,9 @@ class StudentProfile extends Model
         return $this->belongsTo(Student::class);
     }
 
-    public function formResponse(): BelongsTo
+    public function formResponses(): BelongsTo
     {
-        return $this->belongsTo(FormResponse::class);
+        return $this->belongsTo(FormResponses::class);
     }
 
     public function formResponse(): HasOne

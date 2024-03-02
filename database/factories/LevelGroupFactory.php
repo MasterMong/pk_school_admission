@@ -22,7 +22,6 @@ class LevelGroupFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'value' => $this->faker->word(),
         ];
     }
 }

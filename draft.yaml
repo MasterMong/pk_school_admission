@@ -15,7 +15,6 @@ models:
 
   LevelGroup:
     name: string:100
-    value: int
     relationships:
       hasMany: Level
 
