@@ -5,6 +5,14 @@ models:
     is_toggle: bool
     des: string:500
 
+  DocumentType:
+    name: string:200
+    display_name: 300
+    des: string:2000
+    img: string:2000 nullable
+    doc_type: string:50
+    attr: json
+
   LevelGroup:
     name: string:100
     value: int

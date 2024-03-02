@@ -1,5 +1,6 @@
 created:
     - database/factories/SettingFactory.php
+    - database/factories/DocumentTypeFactory.php
     - database/factories/LevelGroupFactory.php
     - database/factories/LevelFactory.php
     - database/factories/FormGroupFactory.php
@@ -8,16 +9,18 @@ created:
     - database/factories/StudentProfileFactory.php
     - database/factories/StudentFactory.php
     - database/factories/RelationshipsFactory.php
-    - database/migrations/2024_03_02_195527_create_settings_table.php
-    - database/migrations/2024_03_02_195528_create_level_groups_table.php
-    - database/migrations/2024_03_02_195529_create_levels_table.php
-    - database/migrations/2024_03_02_195530_create_form_groups_table.php
-    - database/migrations/2024_03_02_195531_create_forms_table.php
-    - database/migrations/2024_03_02_195532_create_form_responses_table.php
-    - database/migrations/2024_03_02_195533_create_student_profiles_table.php
-    - database/migrations/2024_03_02_195534_create_students_table.php
-    - database/migrations/2024_03_02_195535_create_relationships_table.php
+    - database/migrations/2024_03_02_200041_create_settings_table.php
+    - database/migrations/2024_03_02_200042_create_document_types_table.php
+    - database/migrations/2024_03_02_200043_create_level_groups_table.php
+    - database/migrations/2024_03_02_200044_create_levels_table.php
+    - database/migrations/2024_03_02_200045_create_form_groups_table.php
+    - database/migrations/2024_03_02_200046_create_forms_table.php
+    - database/migrations/2024_03_02_200047_create_form_responses_table.php
+    - database/migrations/2024_03_02_200048_create_student_profiles_table.php
+    - database/migrations/2024_03_02_200049_create_students_table.php
+    - database/migrations/2024_03_02_200050_create_relationships_table.php
     - app/Models/Setting.php
+    - app/Models/DocumentType.php
     - app/Models/LevelGroup.php
     - app/Models/Level.php
     - app/Models/FormGroup.php
@@ -29,6 +32,7 @@ created:
 models:
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     Setting: { key: 'string:200', value: 'string:50', is_toggle: bool, des: 'string:500' }
+    DocumentType: { name: 'string:200', display_name: 300, des: 'string:2000', img: 'string:2000 nullable', doc_type: 'string:50', attr: json }
     LevelGroup: { name: 'string:100', value: int, relationships: { hasMany: Level } }
     Level: { name: 'string:100', value: int, relationships: { hasMany: Student, belongsTo: LevelGroup } }
     FormGroup: { name: 'string:300', relationships: { hasMany: Form } }
