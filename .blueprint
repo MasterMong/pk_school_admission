@@ -9,16 +9,16 @@ created:
     - database/factories/StudentProfileFactory.php
     - database/factories/StudentFactory.php
     - database/factories/RelationshipsFactory.php
-    - database/migrations/2024_03_02_200041_create_settings_table.php
-    - database/migrations/2024_03_02_200042_create_document_types_table.php
-    - database/migrations/2024_03_02_200043_create_level_groups_table.php
-    - database/migrations/2024_03_02_200044_create_levels_table.php
-    - database/migrations/2024_03_02_200045_create_form_groups_table.php
-    - database/migrations/2024_03_02_200046_create_forms_table.php
-    - database/migrations/2024_03_02_200047_create_form_responses_table.php
-    - database/migrations/2024_03_02_200048_create_student_profiles_table.php
-    - database/migrations/2024_03_02_200049_create_students_table.php
-    - database/migrations/2024_03_02_200050_create_relationships_table.php
+    - database/migrations/2024_03_02_201440_create_settings_table.php
+    - database/migrations/2024_03_02_201441_create_document_types_table.php
+    - database/migrations/2024_03_02_201442_create_level_groups_table.php
+    - database/migrations/2024_03_02_201443_create_levels_table.php
+    - database/migrations/2024_03_02_201444_create_form_groups_table.php
+    - database/migrations/2024_03_02_201445_create_forms_table.php
+    - database/migrations/2024_03_02_201446_create_form_responses_table.php
+    - database/migrations/2024_03_02_201447_create_student_profiles_table.php
+    - database/migrations/2024_03_02_201448_create_students_table.php
+    - database/migrations/2024_03_02_201449_create_relationships_table.php
     - app/Models/Setting.php
     - app/Models/DocumentType.php
     - app/Models/LevelGroup.php
@@ -37,7 +37,7 @@ models:
     Level: { name: 'string:100', value: int, relationships: { hasMany: Student, belongsTo: LevelGroup } }
     FormGroup: { name: 'string:300', relationships: { hasMany: Form } }
     Form: { user_id: int, form_group_id: 'id foreign', name: 'string:500', des: 'string:200', is_guest: bool, is_enable: bool, limit_time: bool, start_date: datetime, end_date: datetime, is_enabled: bool, fields: json, search_field: json, status: json, code_start: 'string:40', code_leading_zero_length: int, default_status: 'string:50', relationships: { hasMany: FormResponse, belongsTo: FormGroup } }
-    FormResponse: { form_id: 'id foreign', cid: 'string:13', code: 'string:100', value: json, status: 'string:50', relationships: { belongsTo: Form, hasOne: StudentProfile } }
-    StudentProfile: { cid: 'string:13', prefix: 'string:50', fname: 'string:100', mname: 'string:100', lname: 'string:100', data: json, form_response_id: 'id foreign', relationships: { belongsTo: student, hasOne: FormResponse } }
+    FormResponse: { form_id: 'id foreign', cid: 'string:13', code: 'string:100', value: json, status: 'string:50', student_profile_id: 'id foreign nullable', relationships: { belongsTo: 'Form, StudentProfile' } }
+    StudentProfile: { cid: 'string:13', prefix: 'string:50', fname: 'string:100', mname: 'string:100', lname: 'string:100', data: json, form_responses_id: 'id foreign', relationships: { belongsTo: student, hasOne: FormResponse } }
     Student: { sid: int, cid: 'string:13', level_id: 'id foreign', room: int, 'no': int, status: 'string:50' }
     relationships: { hasOne: StudentProfile }

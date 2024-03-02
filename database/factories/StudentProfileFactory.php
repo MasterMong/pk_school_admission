@@ -29,7 +29,7 @@ class StudentProfileFactory extends Factory
             'mname' => $this->faker->regexify('[A-Za-z0-9]{100}'),
             'lname' => $this->faker->regexify('[A-Za-z0-9]{100}'),
             'data' => '{}',
-            'form_response_id' => FormResponse::factory(),
+            'form_responses_id' => FormResponse::factory(),
             'student_id' => Student::factory(),
         ];
     }

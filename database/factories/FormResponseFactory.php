@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Form;
 use App\Models\FormResponse;
+use App\Models\StudentProfile;
 
 class FormResponseFactory extends Factory
 {
@@ -27,6 +28,7 @@ class FormResponseFactory extends Factory
             'code' => $this->faker->regexify('[A-Za-z0-9]{100}'),
             'value' => '{}',
             'status' => $this->faker->regexify('[A-Za-z0-9]{50}'),
+            'student_profile_id' => StudentProfile::factory(),
         ];
     }
 }

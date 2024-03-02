@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class FormResponse extends Model
 {
@@ -22,6 +21,7 @@ class FormResponse extends Model
         'code',
         'value',
         'status',
+        'student_profile_id',
     ];
 
     /**
@@ -33,6 +33,7 @@ class FormResponse extends Model
         'id' => 'integer',
         'form_id' => 'integer',
         'value' => 'array',
+        'student_profile_id' => 'integer',
     ];
 
     public function form(): BelongsTo
@@ -40,8 +41,8 @@ class FormResponse extends Model
         return $this->belongsTo(Form::class);
     }
 
-    public function studentProfile(): HasOne
+    public function studentProfile(): BelongsTo
     {
-        return $this->hasOne(StudentProfile::class);
+        return $this->belongsTo(StudentProfile::class);
     }
 }

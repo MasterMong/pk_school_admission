@@ -58,9 +58,9 @@ models:
     code: string:100
     value: json
     status: string:50
+    student_profile_id: id foreign nullable
     relationships:
-      belongsTo: Form
-      hasOne: StudentProfile
+      belongsTo: Form, StudentProfile
 
   StudentProfile:
     cid: string:13
@@ -69,7 +69,7 @@ models:
     mname: string:100
     lname: string:100
     data: json
-    form_response_id: id foreign
+    form_responses_id: id foreign
     relationships:
       belongsTo: student
       hasOne: FormResponse
